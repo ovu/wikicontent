@@ -7,24 +7,24 @@ nolock allows other processes to read the same table while your process is still
 
 Sample:
 
->SELECT t.column1, t.column2
->FROM tableA t (nolock)
->INNER JOIN tableB t2 (nolock) ON (t2.ID = t.ID)
+	SELECT t.column1, t.column2
+	FROM tableA t (nolock)
+	INNER JOIN tableB t2 (nolock) ON (t2.ID = t.ID)
 
 ## Query optimization
 ### Use ltrim
 Comparing strings is not something recommended in SQL queries because they are slow. The query completion time will be increased proportional to the size of the table rows that are being compared. When the comparison of strings cannot be avoided, then the ltrim can help to optimize the query.  
 Sample:
->SELECT t.column1, t.column2
->FROM tableA t, tableB t2
->WHERE t.fileID = 1
->AND ltrim(t.FirstName) = ltrim(t2.FirstName)
+	SELECT t.column1, t.column2
+	FROM tableA t, tableB t2
+	WHERE t.fileID = 1
+	AND ltrim(t.FirstName) = ltrim(t2.FirstName)
 
 ## Useful Queries
 
 ### Fragmentation information of a table
 
-> DBCC showcontig(Table)
+	DBCC showcontig(Table)
 
 It will be deprecated. Use sys.dm_db_index_physical_stats instead.
 
