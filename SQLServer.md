@@ -15,6 +15,7 @@ Sample:
 ### Use ltrim
 Comparing strings is not something recommended in SQL queries because they are slow. The query completion time will be increased proportional to the size of the table rows that are being compared. When the comparison of strings cannot be avoided, then the ltrim can help to optimize the query.  
 Sample:
+
 	SELECT t.column1, t.column2
 	FROM tableA t, tableB t2
 	WHERE t.fileID = 1
