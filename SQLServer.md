@@ -1,8 +1,8 @@
 SQL Server
 -----------
 
-# Best practices
-## Use nolock on queries
+## Best practices
+### Use nolock on queries
 nolock allows other processes to read the same table while your process is still reading. It is a best practice because it will avoid slowing down query execution. 
 
 Sample:
@@ -11,8 +11,8 @@ Sample:
 >FROM tableA t (nolock)
 >INNER JOIN tableB t2 (nolock) ON (t2.ID = t.ID)
 
-# Query optimization
-## Use ltrim
+## Query optimization
+### Use ltrim
 Comparing strings is not something recommended in SQL queries because they are slow. The query completion time will be increased proportional to the size of the table rows that are being compared. When the comparison of strings cannot be avoided, then the ltrim can help to optimize the query.  
 Sample:
 >SELECT t.column1, t.column2
@@ -20,15 +20,15 @@ Sample:
 >WHERE t.fileID = 1
 >AND ltrim(t.FirstName) = ltrim(t2.FirstName)
 
-# Useful Queries
+## Useful Queries
 
-## Fragmentation information of a table
+### Fragmentation information of a table
 
 > DBCC showcontig(Table)
 
 It will be deprecated. Use sys.dm_db_index_physical_stats instead.
 
-## Get foreign keys referencing a given table
+### Get foreign keys referencing a given table
 
 >select t.name as TableWithForeignKey, fk.constraint_column_id as FK_PartNo , c.name as ForeignKeyColumn 
 >from sys.foreign_key_columns as fk
