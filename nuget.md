@@ -47,7 +47,7 @@ Show the list of sources in nuget:
 nuget sources
 
 Show the packages available in a repository:
-    > nuget list -s **Repository**
+    > nuget list -s <Repository>
 
 Reinstall packages in a project (useful when changing the version of .net in a
 project):
