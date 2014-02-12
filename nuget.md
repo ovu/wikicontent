@@ -11,11 +11,11 @@ $env:Path = "c:\cygwin64\bin\;C:\Nuget;" + $env:Path
 Get the list of project names
 -----------------------------
 
-> grep -i -r -l --include=*.csproj <NugetPackage> | % { ([xml](Get-Content $_)).Project.PropertyGroup[0].AssemblyName } | % { Install-Package <NugetPackage> -Project $_ }
+    > grep -i -r -l --include=*.csproj <NugetPackage> | % { ([xml](Get-Content $_)).Project.PropertyGroup[0].AssemblyName } | % { Install-Package <NugetPackage> -Project $_ }
 
 
 ###The same just in Powershell
-> dir -recurse -include *.csproj | Select-String -SimpleMatch "FluentValidation" | group path | % { ([xml](Get-Content $_.Name)).Project.PropertyGroup[0].AssemblyName } | % { Install-Package jQuery -Project $_ }
+    > dir -recurse -include *.csproj | Select-String -SimpleMatch "FluentValidation" | group path | % { ([xml](Get-Content $_.Name)).Project.PropertyGroup[0].AssemblyName } | % { Install-Package jQuery -Project $_ }
 
 ###Creating a new nugep package
 
