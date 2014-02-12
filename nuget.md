@@ -35,21 +35,21 @@ Execute the command:
 
 
 ###Publish the package
-API Key: <Your key>
+API Key: **Your key**
 
-> nuget push .\unhaddins.3.0.0.773.nupkg -s http://<YourRepository>/ <YourKey>
+> nuget push .\unhaddins.3.0.0.773.nupkg -s http://**YourRepository**/ **YourKey**
 
 ###Delete a package from repository
-> nuget delete unhaddins 3.0.0.773 -Source http://<YourRepository>/ -ApiKey <YourKey>
+> nuget delete unhaddins 3.0.0.773 -Source http://**YourRepository**/ -ApiKey **YourKey**
 
 ###Additional nuget commands
 Show the list of sources in nuget:
 nuget sources
 
 Show the packages available in a repository:
-> nuget list -s <Repository>
+> nuget list -s **Repository**
 
 Reinstall packages in a project (useful when changing the version of .net in a
 project):
 
-> Update-Package -Project <YourProject> -Reinstall
+> Update-Package -Project **YourProject** -Reinstall
