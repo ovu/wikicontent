@@ -1,0 +1,4 @@
+Find
+----
+
+find . -type d \( -path ./node_modules -o -path ./dev/bower_components \) -prune -o -name '*.js' -exec sed -e "s/crazy1/goCrazySelectLayer/" -i {} \;
