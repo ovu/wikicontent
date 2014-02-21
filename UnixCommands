@@ -3,8 +3,14 @@ Find
 
 find . -type d \( -path ./node_modules -o -path ./dev/bower_components \) -prune -o -name '*.js' -exec sed -e "s/crazy1/goCrazySelectLayer/" -i {} \;
 
+### Open files in Vim
+
+find . \( -name '*.js' -o -name '*.html' -o -path ./dev/bower_components -prune \) -type f -print0 | xargs -0 gvim
+
 Grep
 ----
 
 $ find . -type d \( -path ./node_modules -o -path ./dev/bower_components \) -prune -o -name '*.js' -print0 | xargs -0 grep crazy1ViewModel
+
+
 
