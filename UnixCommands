@@ -12,5 +12,9 @@ Grep
 
 $ find . -type d \( -path ./node_modules -o -path ./dev/bower_components \) -prune -o -name '*.js' -print0 | xargs -0 grep crazy1ViewModel
 
+### Grep combined with Sed
+
+$ grep -R -H -n -l --include=*.js --color dough -Z | xargs -0 sed -i "s/dough/layer/"
+
 
 
