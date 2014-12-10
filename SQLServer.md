@@ -38,3 +38,28 @@ It will be deprecated. Use sys.dm_db_index_physical_stats instead.
 	where fk.referenced_object_id = (select object_id from sys.tables where name = 'TableOthersForeignKeyInto')
 	order by TableWithForeignKey, FK_PartNo
 
+### Database information
+In order to get information of all databases run the following command:
+        sp_helpdb
+In order to get information of one database execute the following command:
+        sp_helpdb master
+
+### Blocking
+When there is a dealock in a database first it is necessary to find whe process that is causing the deadlock.
+The following command gives you the information of all process that active.
+        sp_who2 active
+To kill the process that is causing the deadlock use the following command:
+        kill <ProcessId>
+To get more information about the input buffer, the following command is useful.
+        DBCC INPUTBUFFER (<ProcessId>)
+### Performance
+In order to know if a table in a database has performance problems it is necessary to get information about the scan density and the scan fragmentation.
+The information from a table can be get executing the following command:
+        DBCC SHOWCONTIG (<TableName>) with all_indexes
+When the scan density is less thatn 70% then there are maybe performance issues. When the scan fragmentation is greater than 10% it is another sign of performance issues as well.
+### Index optimization
+To optimize an index use the command DBREINDEX. However be carefull when executing the command because it 'blocks' the table.
+### Retrieving the version of SQL Server
+To retrieve the version of SQL Server, including patch number execute the following command.
+        Select @@version
+
