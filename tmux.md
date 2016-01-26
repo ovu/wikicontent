@@ -11,6 +11,7 @@ It worked in Yosemite with Terminal and iTerm2.
 1. Set the locale in the commandline or in your .profile
 
 export LC_ALL=en_US.UTF-8
+
 export LANG=en_US.UTF-8
 
 2. Install psutil (required for the system uptime information)
