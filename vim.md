@@ -11,6 +11,17 @@ Vim useful commands
 
 	:messages 
 
+###Delete all lines that matches a pattern
+
+:g/console.log/d
+
+###Replace text inside a selection
+
+1. Select the text
+2. Execute the command
+
+:s/oldText/newText/g
+
 ###YouCompleteMe configuration
 
 After installing the plugin a configuration file should be added in the root directory where YouCompleteMe should offer to complete the code.
