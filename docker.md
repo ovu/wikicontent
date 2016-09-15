@@ -7,7 +7,27 @@ https://docs.docker.com/v1.5/installation/fedora/
 
 # Installation 
 
-sudo dnf install docker-io
+One way to install docker on fedora is using the dnf command:
+
+dnf search docker
+
+dnf docker install docker
+
+However there is another way that works for every linux distro.
+
+The url https://get.docker.com provides and script to install docker from a script.
+
+At the beginning of the script there is a help that helps you to download the script and execute it.
+
+curl -fsSL https://experimental.docker.com/ | sh
+
+After running the script it will give you the hint to run docker as a non-root user. The hint shows the command:
+
+sudo usermod -aG docker YOUR-USER
+
+After running the command you can check the groups where your user is in:
+
+id YOUR-USER
 
 # Starting the docker daemon 
 
@@ -26,7 +46,7 @@ sudo groupadd docker
 
 sudo chown root:docker /var/run/docker.sock
 
-sudo usermod -a -G docker $USERNAME
+sudo usermod -a -G docker YOUR-USER
 
 
 # Permission denied when mounting volume
@@ -45,4 +65,3 @@ docker run -v /var/db:/var/db:z rhel7 /bin/sh
 It will automatically do the chcon -Rt svirt_sandbox_file_t /var/db as described in the man page of docker-run (see man docker-run)
 
 The difference between z and Z is that z will enable sharing between containers and Z for the specific container.
-
