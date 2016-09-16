@@ -54,4 +54,24 @@ docker attach <CONTAINER ID OR NAME>
 
 docker ps -a
 
+# Start an stopped container
 
+docker start <CONTAINER ID OR NAME>
+
+# Display the running processes in a container
+
+docker top <CONTAINER ID OR NAME>
+
+# Stop a running container
+
+docker stop <CONTAINER ID OR NAME>
+
+# Where are the containers stored in my local machine?
+
+They are stored in the following directory:
+
+/var/lib/docker/containers
+
+# Run image deattached
+
+docker run -d -ti --name=myImage <IMAGE NAME> <INITIAL COMMAND>
