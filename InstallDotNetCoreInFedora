@@ -1,0 +1,22 @@
+Install .NET Core in Fedora
+=============================
+
+The following link explains how to install .NET Core in Fedora 23, however it worked in Fedora 22 as well.
+
+https://www.microsoft.com/net/core/#fedora
+
+# Step 1: Install .NET Core SDK
+
+sudo dnf install libunwind libicu
+
+curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=827531
+
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+
+sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+
+# Go in the directory where you have a .NET Core solution
+
+dotnet restore
+
+dotner run
