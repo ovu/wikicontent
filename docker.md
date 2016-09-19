@@ -66,6 +66,18 @@ It will automatically do the chcon -Rt svirt_sandbox_file_t /var/db as described
 
 The difference between z and Z is that z will enable sharing between containers and Z for the specific container.
 
+# Installing docker-compose
+
+Follow the steps described in: https://docs.docker.com/compose/install/
+
+Execute the following commands:
+
+su
+
+curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+
 # Installing docker-machine
 
 Follow the steps described in: https://docs.docker.com/machine/install-machine/
