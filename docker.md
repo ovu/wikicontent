@@ -65,3 +65,15 @@ docker run -v /var/db:/var/db:z rhel7 /bin/sh
 It will automatically do the chcon -Rt svirt_sandbox_file_t /var/db as described in the man page of docker-run (see man docker-run)
 
 The difference between z and Z is that z will enable sharing between containers and Z for the specific container.
+
+# Installing docker-machine
+
+Follow the steps described in: https://docs.docker.com/machine/install-machine/
+
+Execute the following commands:
+
+su
+
+curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine 
+
+chmod +x /usr/local/bin/docker-machine
