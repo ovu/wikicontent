@@ -117,3 +117,12 @@ Now search in the web for Font awesome cheat sheet and get the icon you want.
 Then past the icon inside the name of the workspace.
 
 set $workspace1 "1. Editor <Your icon>"
+
+## Configure compose key
+The information was got from the following URL: https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg#Configuring_compose_key
+To see the keys that can be used as compose key run the following command:
+$ cat /usr/share/X11/xkb/rules/base.lst | grep compose
+
+To set the compose key run the command (set right Alt as compose key):
+$ setxkbmap -option compose:ralt
+
