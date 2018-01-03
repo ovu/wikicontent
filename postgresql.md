@@ -2,27 +2,42 @@ Postgresql
 ==========
 
 ## Connect in the console to Postgresql
+```bash
 sudo su - postgres -c psql
+```
 
 ## Verify if user has table or database privilege
+
+```sql
 select has_table_privilege('YourUser', 'YourTable', 'insert');
 
 select has_database_privilege('YourUser', 'YourDatabase', 'connect');
+```
 
 ## List all privileges of a user
+```sql
 select *  FROM information_schema.table_privileges where grantee = 'YourUser or YourRole'
+```
 
 ## Verify if a user or role exists
+```sql
 select count(*) from pg_roles where rolname='YourUser or YourRole'
+```
 
 ## Assign a role to a user
+```sql
 GRANT YourRole TO YourUser
+```
 
 ## Grant privileges to a user or role
+```sql
 GRANT INSERT, DELETE, UPDATE, SELECT ON ALL TABLES IN SCHEMA YourSchema to YourUser
-
+```
 ## Revoke privileges from a user or role
+
+```sql
 REVOKE INSERT, DELETE, UPDATE, SELECT ON ALL TABLES IN SCHEMA YourSchema from YourUser
+```
 
 ## Detect deadlocks
 ```sql
@@ -53,6 +68,7 @@ SELECT blocked_locks.pid     AS blocked_pid,
 
 ## Kill blocking processes
 
+```sql
 SELECT
     pg_terminate_backend(pid) 
 FROM
@@ -63,10 +79,11 @@ WHERE
     -- don’t kill the connections to other databases
     AND datname = 'YourDatabase'
     ;
+```
 ## Get the last value of a sequence
-    ```sql
+```sql
 select last_value from "YourSchema"."YourSequenceName";
-    ```
+```
 ## Alter the counter of a sequence
 ```sql
 ALTER SEQUENCE "YourSchema"."YourSequenceName" RESTART WITH NewSequenceCounter;
