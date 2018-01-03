@@ -63,3 +63,13 @@ WHERE
     -- don’t kill the connections to other databases
     AND datname = 'YourDatabase'
     ;
+## Get the last value of a sequence
+    ```sql
+select last_value from "YourSchema"."YourSequenceName";
+    ```
+## Alter the counter of a sequence
+```sql
+ALTER SEQUENCE "YourSchema"."YourSequenceName" RESTART WITH NewSequenceCounter;
+```
+
+Note: to alter correctly the NewSequenceCounter should be last_value + 1
