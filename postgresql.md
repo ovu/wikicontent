@@ -25,6 +25,7 @@ GRANT INSERT, DELETE, UPDATE, SELECT ON ALL TABLES IN SCHEMA YourSchema to YourU
 REVOKE INSERT, DELETE, UPDATE, SELECT ON ALL TABLES IN SCHEMA YourSchema from YourUser
 
 ## Detect deadlocks
+```sql
 SELECT blocked_locks.pid     AS blocked_pid,
          blocked_activity.usename  AS blocked_user,
          blocking_locks.pid     AS blocking_pid,
@@ -48,6 +49,7 @@ SELECT blocked_locks.pid     AS blocked_pid,
  
     JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
    WHERE NOT blocked_locks.GRANTED;
+```
 
 ## Kill blocking processes
 
