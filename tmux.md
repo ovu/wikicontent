@@ -16,3 +16,16 @@ export LANG=en_US.UTF-8
 
 2. Install psutil (required for the system uptime information)
 sudo pip install psutil
+
+3. Window automation
+
+Executing command on a session an window:
+  tmux send-keys -t <session_name>:1 C-c "git checkout master" Enter "git pull" Enter vim Enter
+
+
+Getting the process running in a pane:
+
+  tmux list-panes -t <session_name>:1  -F '#{pane_active} #{pane_pid}'
+
+Getting the child process of a process:
+  pgrep -P 46677
